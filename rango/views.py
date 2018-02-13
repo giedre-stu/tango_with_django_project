@@ -8,8 +8,8 @@ from rango.forms import CategoryForm
 from rango.forms import PageForm
 
 def index(request):
-	context_dict = {'boldmessage': "Crunchy, creamy, cookie, candy, cupcake!"}
-	return render(request, 'rango/index.html', context=context_dict)
+	# context_dict = {'boldmessage': "Crunchy, creamy, cookie, candy, cupcake!"}
+	# return render(request, 'rango/index.html', context=context_dict)
 
 	category_list = Category.objects.order_by('-likes') [:5]
 	page_list = Page.objects.order_by('-views') [:5]
