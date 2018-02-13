@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 # Adding this comment so python sees a change.
@@ -28,6 +29,15 @@ class Page(models.Model):
 	title = models.CharField(max_length=128) 
 	url = models.URLField()
 	views = models.IntegerField(default=0)
+
+class UserProfile(models.Model):
+	user = models.OneToOneField(User)
+
+	website = models.URLField(blank=True)
+	picture = models.ImageField(upload_to='profile_images', blank=True)
+
+	def __str__(self):
+		return self.user.username
 
 def __unicode__(self): 
 	return self.title
